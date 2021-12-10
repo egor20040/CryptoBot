@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from keyboards.inline.callback_datas import set_callback
+from keyboards.inline.callback_datas import set_callback, set_byi_sell, set_paid
 
 keybord_exchange = InlineKeyboardMarkup(row_width=2,
                                         inline_keyboard=[
@@ -30,19 +30,18 @@ keybord_exchange = InlineKeyboardMarkup(row_width=2,
                                         )
 
 keybord_back_area = InlineKeyboardMarkup(row_width=1,
-                                        inline_keyboard=[
-                                            [
-                                                InlineKeyboardButton(
-                                                    text="⬅️ Назад",
-                                                    callback_data="backmenuexchange"
+                                         inline_keyboard=[
+                                             [
+                                                 InlineKeyboardButton(
+                                                     text="⬅️ Назад",
+                                                     callback_data="backmenuexchange"
 
-                                                ),
+                                                 ),
 
-                                            ]
+                                             ]
 
-                                        ]
-                                        )
-
+                                         ]
+                                         )
 
 
 def keyboard_shopping(currency):
@@ -73,3 +72,54 @@ def keyboard_shopping(currency):
                                             ]
                                             )
     return keybord_shopping
+
+
+def keyboard_aplly_bying(summ, operation):
+    keybord_bying = InlineKeyboardMarkup(row_width=2,
+                                         inline_keyboard=[
+                                             [
+                                                 InlineKeyboardButton(
+                                                     text="Продолжить",
+                                                     callback_data=set_byi_sell.new(text_name="final",
+                                                                                    operation=operation, purse=summ)
+
+                                                 ),
+
+                                             ],
+                                             [
+                                                 InlineKeyboardButton(
+                                                     text="Назад",
+                                                     callback_data="backmenuexchange"
+
+                                                 ),
+
+                                             ]
+
+                                         ]
+                                         )
+    return keybord_bying
+
+
+def paid_keyboard():
+    paid_keyboard = InlineKeyboardMarkup(row_width=2,
+                                         inline_keyboard=[
+                                             [
+                                                 InlineKeyboardButton(
+                                                     text="Оплатил",
+                                                     callback_data=set_paid.new(text_name="paid")
+
+                                                 ),
+
+                                             ],
+                                             [
+                                                 InlineKeyboardButton(
+                                                     text="Назад",
+                                                     callback_data="backmenuexchange"
+
+                                                 ),
+
+                                             ]
+
+                                         ]
+                                         )
+    return paid_keyboard
