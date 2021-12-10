@@ -7,6 +7,9 @@ load_dotenv()
 BOT_TOKEN = str(os.getenv("BOT_TOKEN"))
 API_KEY = str(os.getenv("API_KEY"))
 API_SECRET = str(os.getenv("API_SECRET"))
+PGUSER = str(os.getenv("PGUSER"))
+PGPASSWORD = str(os.getenv("PGPASSWORD"))
+DATABASE = str(os.getenv("DATABASE"))
 admins = [
     417804053
 ]
@@ -21,3 +24,5 @@ redis = {
     'address': (ip, 6379),
     'encoding': 'utf8'
 }
+
+POSTGRES_URL = f"postgresql://{PGUSER}:{PGPASSWORD}@{ip}/{DATABASE}"
