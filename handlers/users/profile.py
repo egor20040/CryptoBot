@@ -11,6 +11,7 @@ from utils.db_api import quick_commands as commands
 @dp.message_handler(text="🔐 Личные данные")
 async def show_menu(message: types.Message):
     user = await commands.select_user(message.from_user.id)
+    bot_user = await dp.bot.get_me()
     btc = ''
     eth = ''
     qiwi = ''
@@ -26,7 +27,7 @@ async def show_menu(message: types.Message):
     text = [
         f'Ваш id: {message.from_user.id}',
         'Всего седлок: 0',
-        'Приглашеных пользователей: 0',
+        f'Приглашеных пользователей: {user.invited}',
         '',
         f'BTC кошелек: {btc}',
         '',
@@ -35,6 +36,9 @@ async def show_menu(message: types.Message):
         f'SOL кошелек: {sol}',
         '',
         f'QIWI кошелек: {qiwi}'
+        f'\n\n'
+        f'Ваша ссылка для приглашения пользователей: http://t.me/{bot_user.username}?start={message.from_user.id}'
+
     ]
     await message.answer('\n'.join(text), reply_markup=keybord_profile)
 

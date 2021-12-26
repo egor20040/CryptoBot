@@ -12,5 +12,7 @@ class User(TimeBaseModel):
     eth = Column(String)
     qiwi = Column(String)
     sol = Column(String)
+    invited = Column(BigInteger)
+    called = Column(BigInteger)
 
     query: sql.Select

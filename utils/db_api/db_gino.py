@@ -45,7 +45,8 @@ class User(TimeBaseModel):
     sol = Column(String)
     language = Column(String)
     currency = Column(String)
-
+    invited = Column(BigInteger)
+    called = Column(BigInteger)
 
     query: sql.Select
 
