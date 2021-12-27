@@ -1,10 +1,12 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.types import CallbackQuery
+from aiogram.utils.markdown import hbold
 
 from keyboards.inline.callback_datas import set_callback
 from keyboards.inline.profile import keybord_profile
 from loader import dp
+import datetime as dt
 from utils.db_api import quick_commands as commands
 
 
@@ -24,10 +26,17 @@ async def show_menu(message: types.Message):
         qiwi = user.qiwi
     if user.sol:
         sol = user.sol
+
+    now = dt.datetime.utcnow()
+    created_at = user.created_at + dt.timedelta(hours=3)
+    moscow_now = now + dt.timedelta(hours=3)
+    start = moscow_now.date() - created_at.date()
     text = [
-        f'Ваш id: {message.from_user.id}',
-        'Всего седлок: 0',
-        f'Приглашеных пользователей: {user.invited}',
+        f'🔐 Личные данные',
+        f'',
+        f'{hbold("Ваш id:")} {message.from_user.id}',
+        f'{hbold("Всего сделок:")} 0',
+        f'{hbold("Приглашенных пользователей:")} {user.invited}',
         '',
         f'BTC кошелек: {btc}',
         '',
@@ -35,9 +44,13 @@ async def show_menu(message: types.Message):
         '',
         f'SOL кошелек: {sol}',
         '',
-        f'QIWI кошелек: {qiwi}'
-        f'\n\n'
-        f'Ваша ссылка для приглашения пользователей: http://t.me/{bot_user.username}?start={message.from_user.id}'
+        f'QIWI кошелек: {qiwi}',
+        f'',
+        f'{hbold("Дней в сервисе:")} {start.days}',
+        f'',
+        f'Ваша ссылка для приглашения пользователей: http://t.me/{bot_user.username}?start={message.from_user.id}',
+        f'',
+        f'🔒 Ваши данные защищены RSA-2048, DH-2048 и AES шифрованием.',
 
     ]
     await message.answer('\n'.join(text), reply_markup=keybord_profile)
@@ -61,5 +74,3 @@ async def update_currency(message: types.Message, state: FSMContext):
     await message.answer(f"Ваш {number} кошелек обновлен")
     await state.finish()
     await show_menu(message)
-
-

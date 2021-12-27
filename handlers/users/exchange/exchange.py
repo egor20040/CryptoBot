@@ -4,8 +4,8 @@ from aiogram.utils.markdown import hlink, hcode
 
 from data import config
 from keyboards.inline.callback_datas import set_callback, set_byi_sell
-from keyboards.inline.exchange import keybord_exchange, keyboard_shopping, keybord_back_area, \
-    paid_keyboard
+from keyboards.inline.exchange import keybord_exchange, keyboard_shopping,  \
+    paid_keyboard, keyboard_add_currency
 from loader import dp
 from aiogram.dispatcher import FSMContext
 
@@ -18,7 +18,7 @@ crypto = StockExchange()
 
 @dp.message_handler(text="🔁 Обмен")
 async def show_menu_exchange(message: types.Message):
-    await message.answer("Выберете валюту которую хотите купить/продать", reply_markup=keybord_exchange)
+    await message.answer("🔁 Обмен \n\n Выберете валюту которую хотите купить/продать", reply_markup=keybord_exchange)
 
 
 @dp.callback_query_handler(set_callback.filter(text_name="exchange"))
@@ -51,7 +51,7 @@ async def answer(call: CallbackQuery, currency):
 
 async def answer_eror(call: CallbackQuery, currency):
     await call.message.answer(f'Укажите номер своего кошелька {currency} в личном кабинете',
-                              reply_markup=keybord_back_area)
+                              reply_markup=keyboard_add_currency(currency))
 
 
 @dp.callback_query_handler(text="backmenuexchange")

@@ -29,19 +29,31 @@ keybord_exchange = InlineKeyboardMarkup(row_width=2,
                                         ]
                                         )
 
-keybord_back_area = InlineKeyboardMarkup(row_width=1,
-                                         inline_keyboard=[
-                                             [
-                                                 InlineKeyboardButton(
-                                                     text="⬅️ Назад",
-                                                     callback_data="backmenuexchange"
 
-                                                 ),
+def keyboard_add_currency(currency):
+    keybord_back_area = InlineKeyboardMarkup(row_width=1,
+                                             inline_keyboard=[
+                                                 [
+                                                     InlineKeyboardButton(
+                                                         text=f"Добавить {currency} кошелек",
+                                                         callback_data=set_callback.new(text_name="purse",
+                                                                                        purse=currency)
+
+                                                     ),
+
+                                                 ],
+                                                 [
+                                                     InlineKeyboardButton(
+                                                         text="⬅️ Назад",
+                                                         callback_data="backmenuexchange"
+
+                                                     ),
+
+                                                 ]
 
                                              ]
-
-                                         ]
-                                         )
+                                             )
+    return keybord_back_area
 
 
 def keyboard_shopping(currency):

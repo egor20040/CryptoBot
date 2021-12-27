@@ -7,5 +7,4 @@ beautifulsoup4
 asyncpg
 gino
 sqlalchemy
-pyqiwi
 qiwipy

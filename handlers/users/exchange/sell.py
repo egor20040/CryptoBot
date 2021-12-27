@@ -27,7 +27,7 @@ async def sell_currency(call: CallbackQuery, callback_data: dict, state: FSMCont
         await state.update_data(minsumm=round(minsumm, 6))
         await state.set_state('sell')
     else:
-        await answer_eror(call, currency)
+        await answer_eror(call, 'QIWI')
 
 
 @dp.message_handler(state='sell')
