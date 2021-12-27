@@ -40,3 +40,13 @@ async def update_purse(id, purse, currency):
 async def update_invited(id, invited):
     user = await User.get(id)
     await user.update(invited=invited).apply()
+
+
+async def update_currency(id, volute):
+    user = await User.get(id)
+    await user.update(currency=volute).apply()
+
+
+async def update_language(id, volute):
+    user = await User.get(id)
+    await user.update(language=volute).apply()

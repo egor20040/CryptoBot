@@ -1,6 +1,8 @@
 from aiogram import types
+from aiogram.types import CallbackQuery
 
-from keyboards.inline.settings import keybord_course, keybord_settings_back, keybord_currency
+from keyboards.inline.callback_datas import set_volute, set_language
+from keyboards.inline.settings import keybord_course, keybord_settings_back, keybord_currency, keybord_language
 from loader import dp
 from aiogram.dispatcher import FSMContext
 from aiogram.utils.markdown import hlink
@@ -71,3 +73,35 @@ async def volute(call: types.CallbackQuery):
     await call.message.answer('\n'.join(text), reply_markup=keybord_currency)
 
 
+@dp.callback_query_handler(set_volute.filter(text_name="set_volute"))
+async def set_volute(call: CallbackQuery, callback_data: dict):
+    currency = callback_data.get("volute")
+    await commands.update_currency(id=call.message.chat.id, volute=currency)
+    await volute(call)
+
+
+@dp.callback_query_handler(text="language")
+async def language(call: types.CallbackQuery):
+    await call.answer(cache_time=60)
+    await call.message.delete()
+    user = await commands.select_user(call.message.chat.id)
+    if user.language == "ru":
+        language = '🇷🇺'
+    else:
+        language = '🇬🇧'
+    text = [
+        '🌎 Язык',
+        '',
+        'Выберите язык. Этот фильтр влияет на просмотр и создание объявлений.',
+        '',
+        f'Сейчас используется «{language}».',
+
+    ]
+    await call.message.answer('\n'.join(text), reply_markup=keybord_language)
+
+
+@dp.callback_query_handler(set_language.filter(text_name="set_language"))
+async def set_language(call: CallbackQuery, callback_data: dict):
+    currency = callback_data.get("language")
+    await commands.update_language(id=call.message.chat.id, volute=currency)
+    await language(call)
