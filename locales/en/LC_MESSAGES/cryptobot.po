@@ -1,0 +1,472 @@
+# English translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-12-31 11:32+0300\n"
+"PO-Revision-Date: 2021-12-28 19:57+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: handlers/users/about.py:16 handlers/users/about.py:33
+msgid ""
+"🚀 О сервисе Crypto Market\n"
+"\n"
+"Crypto Market, это место где ты можешь купить или продать криптоволюту с "
+"минимальной комиссией.\n"
+"\n"
+"Сервис не хранит криптоволюту , а выступает обменником между биржей и "
+"пользователем.\n"
+"\n"
+"Мы зарабатываем на комисии и берем 0.45% от сделки.У нас так же есть "
+"реферальная система ознакомится с ней можно по кнопке ниже ⬇️\n"
+"\n"
+"Так же всем кто интересуется миром криптоволюты , советуем наш телеграмм "
+"{сhannel}. Там мы публикуем новости и выгодные инвестиции."
+msgstr ""
+"🚀 About Crypto Market Service\n"
+"\n"
+"Crypto Market is a place where you can buy or sell cryptocurrency with a "
+"minimum commission.\n"
+"\n"
+"The service does not store cryptocurrency , but acts as an exchanger "
+"between the exchange and the user.\n"
+"\n"
+"We earn on commission and take 0.45% of the transaction. We also have a "
+"referral system, you can get acquainted with it by clicking the button "
+"below ⬇️\n"
+"\n"
+"Also , to anyone who is interested in the world of cryptocurrency , we "
+"recommend our telegram {сhannel}. There we publish news and profitable "
+"investments."
+
+#: handlers/users/about.py:24 handlers/users/about.py:41
+msgid "канал"
+msgstr "channel"
+
+#: handlers/users/about.py:51
+msgid ""
+"🗣 Реферальная система\n"
+"\n"
+"За каждого приглашенного пользователя мы выплачиваем 0.15% от общей суммы"
+" его сделок.\n"
+"\n"
+"Ваша реферальная ссылка: http://t.me/{bot_name}?start={user_id}\n"
+"\n"
+"Для того чтобы получить реферальные средства перейдите в \n"
+"«🔐 Личные данные»"
+msgstr ""
+"🗣 Referral system\n"
+"\n"
+"For each invited user, we pay 0.15% of the total amount of his "
+"transactions.\n"
+"\n"
+"Your referral link: http://t.me/{bot_name}?start={user_id}\n"
+"\n"
+"In order to receive referral funds, go to \n"
+"«🔐 Personal data»"
+
+#: handlers/users/echo.py:7
+msgid ""
+"У меня нет такой команды.\n"
+"Попробуйте:\n"
+"/help - Получить справку\n"
+msgstr ""
+"I don't have such a team.\n"
+"Try:\n"
+"/help - Get help\n"
+
+#: handlers/users/main_menu.py:10 handlers/users/main_menu.py:20
+#: handlers/users/start.py:19 handlers/users/start.py:54
+msgid "Выберете категорию которая вам нужна ниже:"
+msgstr "Select the category you need below:"
+
+#: handlers/users/profile.py:39
+msgid ""
+"🔐 Личные данные\n"
+"\n"
+"Ваш id: {user_id}\n"
+"Всего сделок: 0\n"
+"Приглашенных пользователей: {invite}\n"
+"\n"
+"BTC кошелек: {btc}\n"
+"\n"
+"ETH кошелек: {eth}\n"
+"\n"
+"SOL кошелек: {sol}\n"
+"\n"
+"QIWI кошелек: {qiwi}\n"
+"\n"
+"Дней в сервисе: {days}\n"
+"\n"
+"Ваша ссылка для приглашения пользователей: "
+"http://t.me/{bot_name}?start={user_id}\n"
+"\n"
+"🔒 Ваши данные защищены RSA-2048, DH-2048 и AES шифрованием."
+msgstr ""
+"🔐 Private data\n"
+"\n"
+"Your id: {user_id}\n"
+"Total transactions: 0\n"
+"Invited user: {invite}\n"
+"\n"
+"BTC wallet: {btc}\n"
+"\n"
+"ETH wallet: {eth}\n"
+"\n"
+"SOL wallet: {sol}\n"
+"\n"
+"QIWI: {qiwi}\n"
+"\n"
+"Days in the service: {days}\n"
+"\n"
+"Your link to invite users: http://t.me/{bot_name}?start={user_id}\n"
+"\n"
+" 🔒 \" Your information is protected with RSA-2048, DH2048 and AES "
+"encryption."
+
+#: handlers/users/profile.py:72
+msgid "Введите номер кошелька  {currency}"
+msgstr "Enter the wallet number {currency}"
+
+#: handlers/users/profile.py:85
+msgid "Ваш {number} кошелек обновлен"
+msgstr "Your {number} wallet has been updated"
+
+#: handlers/users/settings.py:21 handlers/users/settings.py:35
+msgid ""
+"🛠 Настройки\n"
+"\n"
+"Ваш id: {user_id}\n"
+"\n"
+"Что Вы хотите изменить?"
+msgstr ""
+"🛠 Settings\n"
+"\n"
+"Your id: {user_id}\n"
+"\n"
+"What do you want to change?"
+
+#: handlers/users/settings.py:50
+msgid ""
+"📊 Курс\n"
+"\n"
+"Текущий курс:\n"
+"\n"
+"1 BTC = {btc}.0 RUB\n"
+"1 ETH = {eth}.0 RUB\n"
+"1 SOL = {sol}.0 RUB\n"
+"\n"
+"Текущий источник: {binance}"
+msgstr ""
+"📊 Rate\n"
+"\n"
+"Current rate:\n"
+"\n"
+"1 BTC = {btc}.0 RUB\n"
+"1 ETH = {eth}.0 RUB\n"
+"1 SOL = {sol}.0 RUB\n"
+"\n"
+"Current source: {binance}"
+
+#: handlers/users/settings.py:72
+msgid ""
+"💵 Валюта\n"
+"\n"
+"Выберите валюту. Этот фильтр влияет на просмотр и создание объявлений.\n"
+"\n"
+"Сейчас используется «{currency}»."
+msgstr ""
+" 💵 Currency\n"
+"\n"
+"Select the currency. This filter affects the viewing and creation of ads."
+"\n"
+"\n"
+"Currently using «{currency}»."
+
+#: handlers/users/settings.py:99
+msgid ""
+"🌎 Язык\n"
+"\n"
+"Выберите язык интерфейса. Смена языка не повлияет на отправленные ранее "
+"сообщения.\n"
+"\n"
+"Сейчас используется «{language}»."
+msgstr ""
+"🌎 Language\n"
+"\n"
+"Select the interface language. Changing the language will not affect "
+"previously sent messages.\n"
+"\n"
+"Currently in use «{language}»."
+
+#: handlers/users/start.py:36 handlers/users/start.py:64
+msgid "Привет, {name}!"
+msgstr "Hi, {name}!"
+
+#: handlers/users/start.py:42 handlers/users/start.py:70
+msgid "Вы подтверждаете, что ознакомились и согласны с {custom}?"
+msgstr "You confirm that you have read and agree to the {custom}?"
+
+#: handlers/users/start.py:45 handlers/users/start.py:73
+msgid "условиями предоставления услуг"
+msgstr "terms of service"
+
+#: handlers/users/exchange/buy.py:47 handlers/users/exchange/sell.py:41
+msgid ""
+"Минимальная сумма для покупки {minsumm}\n"
+"\n"
+"Ввдеите корректную сумму\n"
+"\n"
+msgstr ""
+"Minimum purchase amount {minsumm}\n"
+"\n"
+"Enter the correct amount\n"
+"\n"
+
+#: handlers/users/exchange/buy.py:58
+msgid ""
+"Максимальная сумма для покупки {maxsum}\n"
+"\n"
+"Ввдеите корректную сумму\n"
+msgstr ""
+"Maximum amount for purchase {maxsum}\n"
+"\n"
+"Enter the correct amount\n"
+
+#: handlers/users/exchange/buy.py:69
+msgid ""
+"Для оплаты нужно {sum}.0 RUB\n"
+"\n"
+"Хотите продолжить?\n"
+msgstr ""
+"To pay, you need {sum}.0 RUB\n"
+"\n"
+"Do you want to continue?\n"
+
+#: handlers/users/exchange/buy.py:79 handlers/users/exchange/sell.py:64
+msgid ""
+"Вы ввели некоректную сумму.\n"
+"\n"
+"Пример правильной суммы: {minsumm}\n"
+msgstr ""
+"You entered an incorrect amount.\n"
+"\n"
+"Example of the correct amount: {minsumm}\n"
+
+#: handlers/users/exchange/buy.py:96
+msgid "Транзакция не найдена"
+msgstr "Transaction not found"
+
+#: handlers/users/exchange/buy.py:99
+msgid "Не хватает денег"
+msgstr "Not enough money"
+
+#: handlers/users/exchange/buy.py:102
+msgid ""
+"Оплата прошла успешно.\n"
+"\n"
+"Валюта на ваш кошелек будет зачислена в тетечении 15 минут\n"
+msgstr ""
+"The payment was successful.\n"
+"\n"
+"The currency will be credited to your wallet within 15 minutes\n"
+
+#: handlers/users/exchange/exchange.py:26
+msgid ""
+"🔁 Обмен \n"
+"\n"
+" Выберете валюту которую хотите купить/продать"
+msgstr ""
+"🔁 Exchange \n"
+"\n"
+"Choose the currency you want to buy/sell"
+
+#: handlers/users/exchange/exchange.py:54
+msgid "Курс: 1 {currency} = {course}.0 RUB"
+msgstr "Course: 1 {currency} = {course}.0 RUB"
+
+#: handlers/users/exchange/exchange.py:64
+msgid "Укажите номер своего кошелька {currency} в личном кабинете"
+msgstr "Enter the wallet number {currency}"
+
+#: handlers/users/exchange/exchange.py:76
+#: handlers/users/exchange/exchange.py:83
+msgid "Выберете валюту которую хотите купить/продать"
+msgstr "Choose the currency you want to buy/sell"
+
+#: handlers/users/exchange/exchange.py:89
+msgid ""
+"Ввдите сумму в {currency} которую хотите продать\n"
+"\n"
+"Минимальная сумма продажи: {minsumm}\n"
+"Максимальная сумма продажи: {maxsum}\n"
+"\n"
+"Ваш QIWI кошлек для зачисления: {wallet}"
+msgstr ""
+"Enter the amount in {currency} that you want to sell\n"
+"\n"
+"Minimum sale amount: {minsumm}\n"
+"Maximum sale amount: {maxsum}\n"
+"\n"
+"Your QIWI wallet for crediting: {wallet}"
+
+#: handlers/users/exchange/exchange.py:105
+msgid ""
+"Ввдите сумму в {currency} которую хотите приобрести\n"
+"\n"
+"Минимальная сумма продажи: {minsumm}\n"
+"Максимальная сумма продажи: {maxsum}\n"
+"\n"
+"Ваш {currency} кошлек для зачисления : {wallet}"
+msgstr ""
+"Enter the amount in {currency} that you want to purchase\n"
+"\n"
+"Minimum sale amount: {minsumm}\n"
+"Maximum sale amount: {maxsum}\n"
+"\n"
+"Your {currency} wallet for crediting: {wallet}"
+
+#: handlers/users/exchange/exchange.py:131
+msgid ""
+"Оплатите не менее {summ} руб по номеру телефона или по адресу\n"
+"\n"
+"Ссылка: {link}\n"
+"\n"
+"‼️ И обязательно укажите ID платежа: {id}\n"
+msgstr ""
+"Pay at least {summ} rubles by phone number or address\n"
+"\n"
+"Link: {link}\n"
+"\n"
+"‼️ And be sure to specify the payment ID: {id}\n"
+
+#: handlers/users/exchange/exchange.py:148
+msgid ""
+"Оплатите не менее {summ} {currency} по номеру счета:\n"
+"\n"
+"{address}\n"
+msgstr ""
+"Pay at least {summ} {currency} by account number:\n"
+"\n"
+"{address}\n"
+
+#: handlers/users/exchange/sell.py:53
+msgid ""
+"Вы получите {sum}.0 RUB на ваш QIWI кошелек\n"
+"\n"
+"Хотите продолжить?\n"
+msgstr ""
+"You will receive {sum}.0 RUB to your QIWI wallet\n"
+"\n"
+"Do you want to continue?\n"
+
+#: handlers/users/exchange/sell.py:78
+msgid ""
+"Идет проверка оплаты....\n"
+"\n"
+"Если оплата прошла успешно, на ваш будут зачислены средства.\n"
+"В случае ошибки оплаты мы вам сообщим"
+msgstr ""
+"Payment verification is underway....\n"
+"\n"
+"If the payment was successful, funds will be credited to your account.\n"
+"In case of a payment error, we will inform you."
+
+#: keyboards/default/main_menu.py:7
+msgid "🔐 Личные данные"
+msgstr "🔐 Personal data"
+
+#: keyboards/default/main_menu.py:8
+msgid "🔁 Обмен"
+msgstr "🔁 Exchange"
+
+#: keyboards/default/main_menu.py:12
+msgid "🚀 О сервисе Crypto Market"
+msgstr "🚀 About Crypto Market Service"
+
+#: keyboards/default/main_menu.py:13
+msgid "🛠 Настройки"
+msgstr "🛠 Settings"
+
+#: keyboards/default/start.py:8
+msgid "✅ Полностью согласен"
+msgstr "✅ I completely agree"
+
+#: keyboards/inline/about.py:8
+msgid "💎 Наш канал"
+msgstr "💎 Our channel"
+
+#: keyboards/inline/about.py:15
+msgid "💬 Поддержка"
+msgstr "💬 Support"
+
+#: keyboards/inline/about.py:23
+msgid "🗣 Реферальная система"
+msgstr "🗣 Referral system"
+
+#: keyboards/inline/about.py:36 keyboards/inline/exchange.py:51
+#: keyboards/inline/exchange.py:81 keyboards/inline/exchange.py:107
+#: keyboards/inline/exchange.py:132 keyboards/inline/settings.py:55
+#: keyboards/inline/settings.py:69 keyboards/inline/settings.py:97
+msgid "⬅️ Назад"
+msgstr "⬅️ Back"
+
+#: keyboards/inline/exchange.py:35
+msgid "Добавить {currency} кошелек"
+msgstr "Add {currency} wallet"
+
+#: keyboards/inline/exchange.py:68
+msgid "Купить"
+msgstr "Buy"
+
+#: keyboards/inline/exchange.py:73
+msgid "Продать"
+msgstr "Sell"
+
+#: keyboards/inline/exchange.py:98
+msgid "Продолжить"
+msgstr "Continue"
+
+#: keyboards/inline/exchange.py:124
+msgid "Оплатил"
+msgstr "Paid"
+
+#: keyboards/inline/profile.py:10
+msgid "Добавить QIWI"
+msgstr "Add QIWI"
+
+#: keyboards/inline/profile.py:15
+msgid "Добавить BTC"
+msgstr "Add BTC"
+
+#: keyboards/inline/profile.py:23
+msgid "Добавить ETH"
+msgstr "Add ETH"
+
+#: keyboards/inline/profile.py:28
+msgid "Добавить SOL"
+msgstr "Add SOL"
+
+#: keyboards/inline/settings.py:10
+msgid "🌎 Язык"
+msgstr "🌎 Language"
+
+#: keyboards/inline/settings.py:15
+msgid "📊 Курс"
+msgstr "📊 Chickens"
+
+#: keyboards/inline/settings.py:23
+msgid "💵 Выбрать валюту"
+msgstr "💵 Choose a currency"
+
