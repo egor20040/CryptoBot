@@ -1,12 +1,12 @@
 from aiogram import types
-from loader import dp
+from loader import dp, _
 
 
 @dp.message_handler()
 async def bot_echo(message: types.Message):
-    text = [
-        'У меня нет такой команды.',
-        'Попробуйте:',
-        '/help - Получить справку'
-    ]
-    await message.reply('\n'.join(text))
+    text = _(
+        'У меня нет такой команды.\n'
+        'Попробуйте:\n'
+        '/help - Получить справку\n'
+    )
+    await message.reply(text)

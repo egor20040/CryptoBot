@@ -5,7 +5,7 @@ from aiogram.types import CallbackQuery
 from handlers.users.exchange.exchange import buy_currency_show
 from keyboards.inline.callback_datas import set_callback, set_paid
 from keyboards.inline.exchange import keyboard_aplly_bying, paid_keyboard, keybord_exchange
-from loader import dp
+from loader import dp, _
 from utils.misc.binance import StockExchange
 from utils.db_api import quick_commands as commands
 from utils.misc.qiwi import Payment, NoPaymentFound, NotEnoughMoney
@@ -44,29 +44,46 @@ async def buying_currency(message: types.Message, state: FSMContext):
     operation = "buy"
     try:
         if minsumm > float(message.text):
-            await message.answer(f"Минимальная сумма для покупки {minsumm}\n"
-                                 f"\n"
-                                 f"Ввдеите корректную сумму\n"
-                                 f"\n"
-                                 )
+            text = _(
+                "Минимальная сумма для покупки {minsumm}\n"
+                "\n"
+                "Ввдеите корректную сумму\n"
+                "\n"
+            ).format(
+                minsumm=minsumm
+            )
+            await message.answer(text)
             await state.set_state('bying')
         elif maxsum < float(message.text):
-            await message.answer(f"Максимальная сумма для покупки {maxsum}\n"
-                                 f"\n"
-                                 f"Ввдеите корректную сумму\n"
-                                 f"\n"
-                                 )
+            text = _(
+                "Максимальная сумма для покупки {maxsum}\n"
+                "\n"
+                "Ввдеите корректную сумму\n"
+            ).format(
+                maxsum=maxsum
+            )
+            await message.answer(text)
             await state.set_state('bying')
         else:
             summ = crypto.get_course(currency) * float(message.text)
-            await message.answer(f"Для оплаты нужно {round(summ)}.0 RUB"
-                                 f"\n"
-                                 f"Хотите продолжить?", reply_markup=keyboard_aplly_bying(round(summ), operation))
+            text = _(
+                "Для оплаты нужно {sum}.0 RUB\n"
+                "\n"
+                "Хотите продолжить?\n"
+            ).format(
+                sum=round(summ)
+            )
+            await message.answer(text, reply_markup=keyboard_aplly_bying(round(summ), operation))
             await state.finish()
     except:
-        await message.answer(f"Вы ввели некоректную сумму."
-                             f"\n"
-                             f"Пример правильной суммы: {minsumm}")
+        text = _(
+            "Вы ввели некоректную сумму.\n"
+            "\n"
+            "Пример правильной суммы: {minsumm}\n"
+        ).format(
+            minsumm=minsumm
+        )
+        await message.answer(text)
 
 
 @dp.callback_query_handler(set_paid.filter(text_name="paid"), state="paid")
@@ -76,14 +93,16 @@ async def show_paid(call: CallbackQuery, state: FSMContext):
     try:
         payment.check_payment()
     except NoPaymentFound:
-        await call.message.answer("Транзакция не найдена", reply_markup=paid_keyboard())
+        await call.message.answer(_("Транзакция не найдена"), reply_markup=paid_keyboard())
 
     except NotEnoughMoney:
-        await call.message.answer("Не хватает денег", reply_markup=paid_keyboard())
+        await call.message.answer(_("Не хватает денег"), reply_markup=paid_keyboard())
 
     else:
-        await call.message.answer(f"Оплата прошла успешно"
-                                  f"\n"
-                                  f"Валюта на ваш кошелек будет зачислена в тетечении 15 минут",
-                                  reply_markup=keybord_exchange)
+        text = _(
+            "Оплата прошла успешно.\n"
+            "\n"
+            "Валюта на ваш кошелек будет зачислена в тетечении 15 минут\n"
+        )
+        await call.message.answer(text, reply_markup=keybord_exchange)
         await state.finish()

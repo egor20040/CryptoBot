@@ -1,15 +1,17 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from loader import _
 
 main_menu = ReplyKeyboardMarkup(
     [
         [
-            KeyboardButton(text="🔐 Личные данные"),
-            KeyboardButton(text="🔁 Обмен")
+            KeyboardButton(text=_("🔐 Личные данные")),
+            KeyboardButton(text=_("🔁 Обмен"))
 
         ],
         [
-            KeyboardButton(text="🚀 О сервисе Crypto Market"),
-            KeyboardButton(text="🛠 Настройки"),
+            KeyboardButton(text=_("🚀 О сервисе Crypto Market")),
+            KeyboardButton(text=_("🛠 Настройки")
+                           ),
         ],
 
     ],

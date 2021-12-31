@@ -7,7 +7,7 @@ from keyboards.inline.callback_datas import set_callback, set_paid
 from keyboards.inline.exchange import keyboard_aplly_bying, keybord_exchange
 from utils.misc.binance import StockExchange
 from utils.db_api import quick_commands as commands
-from loader import dp
+from loader import dp, _
 
 crypto = StockExchange()
 
@@ -38,33 +38,47 @@ async def selling_currency(message: types.Message, state: FSMContext):
     operation = "sell"
     try:
         if minsumm > float(message.text):
-            await message.answer(f"Минимальная сумма для продажи: {minsumm}\n"
-                                 f"\n"
-                                 f"Ввдеите корректную сумму\n"
-                                 f"\n"
-                                 )
+            text = _(
+                "Минимальная сумма для покупки {minsumm}\n"
+                "\n"
+                "Ввдеите корректную сумму\n"
+                "\n"
+            ).format(
+                minsumm=minsumm
+            )
+            await message.answer(text)
             await state.set_state('sell')
         else:
             summ = crypto.get_course(currency) * float(message.text)
-            await message.answer(f"Вы получите {round(summ)}.0 RUB на ваш QIWI кошелек"
-                                 f"\n"
-                                 f"Хотите продолжить?",
-                                 reply_markup=keyboard_aplly_bying(summ=message.text, operation=operation))
+            text = _(
+                "Вы получите {sum}.0 RUB на ваш QIWI кошелек\n"
+                "\n"
+                "Хотите продолжить?\n"
+            ).format(
+                sum=round(summ)
+            )
+            await message.answer(text, reply_markup=keyboard_aplly_bying(summ=message.text, operation=operation))
             await state.finish()
             await state.update_data(currency=currency)
     except:
-        await message.answer(f"Вы ввели некоректную сумму."
-                             f"\n"
-                             f"Пример правильной суммы: {minsumm}")
+        text = _(
+            "Вы ввели некоректную сумму.\n"
+            "\n"
+            "Пример правильной суммы: {minsumm}\n"
+        ).format(
+            minsumm=minsumm
+        )
+        await message.answer(text)
 
 
 @dp.callback_query_handler(set_paid.filter(text_name="paid"), state="paidcrypto")
 async def show_paid(call: CallbackQuery, state: FSMContext):
     await call.answer(cache_time=60)
     await call.message.delete()
-    await call.message.answer(f"Идет проверка оплаты...."
-                              f"\n"
-                              f"Если оплата прошла успешно, на ваш будут зачислены средства."
-                              f"В случае ошибки оплаты мы вам сообщим",
-                              reply_markup=keybord_exchange)
+    text = _(
+        "Идет проверка оплаты....\n\n"
+        "Если оплата прошла успешно, на ваш будут зачислены средства.\n"
+        "В случае ошибки оплаты мы вам сообщим"
+    )
+    await call.message.answer(text, reply_markup=keybord_exchange)
     await state.finish()

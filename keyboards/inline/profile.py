@@ -1,17 +1,18 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 from keyboards.inline.callback_datas import set_callback
+from loader import _
 
 keybord_profile = InlineKeyboardMarkup(row_width=2,
                                        inline_keyboard=[
                                            [
                                                InlineKeyboardButton(
-                                                   text="Добавить QIWI",
+                                                   text=_("Добавить QIWI"),
                                                    callback_data=set_callback.new(text_name="purse", purse="QIWI")
 
                                                ),
                                                InlineKeyboardButton(
-                                                   text="Добавить BTC",
+                                                   text=_("Добавить BTC"),
                                                    callback_data=set_callback.new(text_name="purse", purse="BTC")
 
                                                ),
@@ -19,12 +20,12 @@ keybord_profile = InlineKeyboardMarkup(row_width=2,
                                            ],
                                            [
                                                InlineKeyboardButton(
-                                                   text="Добавить ETH",
+                                                   text=_("Добавить ETH"),
                                                    callback_data=set_callback.new(text_name="purse", purse="ETH")
 
                                                ),
                                                InlineKeyboardButton(
-                                                   text="Добавить SOL",
+                                                   text=_("Добавить SOL"),
                                                    callback_data=set_callback.new(text_name="purse", purse="SOL")
 
                                                ),

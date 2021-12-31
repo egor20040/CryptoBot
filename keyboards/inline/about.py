@@ -1,17 +1,18 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from loader import _
 
 keybord_about = InlineKeyboardMarkup(row_width=1,
                                      inline_keyboard=[
                                          [
                                              InlineKeyboardButton(
-                                                 text="💎 Наш канал",
+                                                 text=_("💎 Наш канал"),
                                                  url="https://t.me/sliv_litvinwb"
 
                                              ),
                                          ],
                                          [
                                              InlineKeyboardButton(
-                                                 text="💬 Поддержка",
+                                                 text=_("💬 Поддержка"),
                                                  url="https://t.me/rtiandi"
 
                                              ),
@@ -19,7 +20,7 @@ keybord_about = InlineKeyboardMarkup(row_width=1,
                                          ],
                                          [
                                              InlineKeyboardButton(
-                                                 text="🗣 Реферальная система",
+                                                 text=_("🗣 Реферальная система"),
                                                  callback_data="referal"
 
                                              ),
@@ -32,7 +33,7 @@ keybord_back_about = InlineKeyboardMarkup(row_width=1,
                                           inline_keyboard=[
                                               [
                                                   InlineKeyboardButton(
-                                                      text="⬅️ Назад",
+                                                      text=_("⬅️ Назад"),
                                                       callback_data="backreferal"
 
                                                   ),

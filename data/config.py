@@ -29,3 +29,5 @@ redis = {
 }
 
 POSTGRES_URL = f"postgresql://{PGUSER}:{PGPASSWORD}@{ip}/{DATABASE}"
+I18N_DOMAIN = 'cryptobot'
+
