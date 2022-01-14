@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-31 11:32+0300\n"
+"POT-Creation-Date: 2022-01-14 22:12+0300\n"
 "PO-Revision-Date: 2021-12-28 19:57+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Выберете категорию которая вам нужна ниже:"
 msgstr "Select the category you need below:"
 
-#: handlers/users/profile.py:39
+#: handlers/users/profile.py:40 handlers/users/profile.py:88
 msgid ""
 "🔐 Личные данные\n"
 "\n"
@@ -109,8 +109,7 @@ msgid ""
 "\n"
 "Дней в сервисе: {days}\n"
 "\n"
-"Ваша ссылка для приглашения пользователей: "
-"http://t.me/{bot_name}?start={user_id}\n"
+"Ваша реферальная ссылка: http://t.me/{bot_name}?start={user_id}\n"
 "\n"
 "🔒 Ваши данные защищены RSA-2048, DH-2048 и AES шифрованием."
 msgstr ""
@@ -135,13 +134,57 @@ msgstr ""
 " 🔒 \" Your information is protected with RSA-2048, DH2048 and AES "
 "encryption."
 
-#: handlers/users/profile.py:72
+#: handlers/users/profile.py:118
+msgid ""
+"💵 Добавить Кошелек\n"
+"\n"
+"Выберите кошелек, который хотите добавить."
+msgstr ""
+"💵 Add Wallet\n"
+"\n"
+"Select the wallet you want to add."
+
+#: handlers/users/profile.py:133
 msgid "Введите номер кошелька  {currency}"
 msgstr "Enter the wallet number {currency}"
 
-#: handlers/users/profile.py:85
+#: handlers/users/profile.py:146
 msgid "Ваш {number} кошелек обновлен"
 msgstr "Your {number} wallet has been updated"
+
+#: handlers/users/profile.py:173
+msgid ""
+"🎟 Промокоды\n"
+"\n"
+"🎁 Здесь можно активировать промокод полученный у наших партнёров."
+msgstr ""
+"🎟 Promo Codes\n"
+"\n"
+"🎁 Here you can activate the promotional code received from our partners."
+
+#: handlers/users/profile.py:186
+msgid "Ведите код"
+msgstr "Enter a code"
+
+#: handlers/users/profile.py:194
+msgid "🚫 Данный промокод неверный, либо уже был использован"
+msgstr "🚫 This promotional code is incorrect or has already been used"
+
+#: handlers/users/profile.py:206
+msgid ""
+"💰 Реферальные накопления\n"
+"\n"
+"У вас нет реферальных накоплений.\n"
+"Пригласите друзей и получайте процент от общего количества сделок.\n"
+"\n"
+"Ваша реферальная ссылка: http://t.me/{bot_name}?start={user_id}"
+msgstr ""
+"💰 Referral savings\n"
+"\n"
+"You don't have referral savings.\n"
+"Invite friends and get a percentage of the total number of transactions.\n"
+"\n"
+"Your referral link: http://t.me/{bot_name}?start={user_id}"
 
 #: handlers/users/settings.py:21 handlers/users/settings.py:35
 msgid ""
@@ -265,14 +308,14 @@ msgstr ""
 "Example of the correct amount: {minsumm}\n"
 
 #: handlers/users/exchange/buy.py:96
-msgid "Транзакция не найдена"
+msgid "Оплата не найдена"
 msgstr "Transaction not found"
 
-#: handlers/users/exchange/buy.py:99
+#: handlers/users/exchange/buy.py:98
 msgid "Не хватает денег"
 msgstr "Not enough money"
 
-#: handlers/users/exchange/buy.py:102
+#: handlers/users/exchange/buy.py:100
 msgid ""
 "Оплата прошла успешно.\n"
 "\n"
@@ -307,6 +350,8 @@ msgstr "Choose the currency you want to buy/sell"
 
 #: handlers/users/exchange/exchange.py:89
 msgid ""
+"📉 Продать {currency}\n"
+"\n"
 "Ввдите сумму в {currency} которую хотите продать\n"
 "\n"
 "Минимальная сумма продажи: {minsumm}\n"
@@ -314,6 +359,8 @@ msgid ""
 "\n"
 "Ваш QIWI кошлек для зачисления: {wallet}"
 msgstr ""
+"📉 Sell {currency}\n"
+"\n"
 "Enter the amount in {currency} that you want to sell\n"
 "\n"
 "Minimum sale amount: {minsumm}\n"
@@ -321,15 +368,19 @@ msgstr ""
 "\n"
 "Your QIWI wallet for crediting: {wallet}"
 
-#: handlers/users/exchange/exchange.py:105
+#: handlers/users/exchange/exchange.py:106
 msgid ""
+"📈 Купить\n"
+"\n"
 "Ввдите сумму в {currency} которую хотите приобрести\n"
 "\n"
-"Минимальная сумма продажи: {minsumm}\n"
-"Максимальная сумма продажи: {maxsum}\n"
+"Минимальная сумма покупки: {minsumm}\n"
+"Максимальная сумма покупки: {maxsum}\n"
 "\n"
 "Ваш {currency} кошлек для зачисления : {wallet}"
 msgstr ""
+"📈 Buy\n"
+"\n"
 "Enter the amount in {currency} that you want to purchase\n"
 "\n"
 "Minimum sale amount: {minsumm}\n"
@@ -337,21 +388,27 @@ msgstr ""
 "\n"
 "Your {currency} wallet for crediting: {wallet}"
 
-#: handlers/users/exchange/exchange.py:131
+#: handlers/users/exchange/exchange.py:133
 msgid ""
-"Оплатите не менее {summ} руб по номеру телефона или по адресу\n"
-"\n"
-"Ссылка: {link}\n"
-"\n"
-"‼️ И обязательно укажите ID платежа: {id}\n"
+"➖➖➖➖ # {id}➖➖➖➖\n"
+"☎️ Кошелек для оплаты: {number}\n"
+"💰 Сумма: {summ} ₽\n"
+"💭 Комментарий: {id}\n"
+"{important} Комментарий и сумма должны быть 1в1\n"
+"➖➖➖➖➖➖➖➖➖➖➖➖\n"
 msgstr ""
-"Pay at least {summ} rubles by phone number or address\n"
-"\n"
-"Link: {link}\n"
-"\n"
-"‼️ And be sure to specify the payment ID: {id}\n"
+"➖➖➖➖ # {id}➖➖➖➖\n"
+"☎️ Wallet for payment: {number}\n"
+"💰 Sum: {summ} ₽\n"
+"💭 A comment: {id}\n"
+"{important} Comment and amount must be 1v1\n"
+"➖➖➖➖➖➖➖➖➖➖➖➖\n"
 
-#: handlers/users/exchange/exchange.py:148
+#: handlers/users/exchange/exchange.py:144
+msgid "ВАЖНО"
+msgstr "IMPORTANT"
+
+#: handlers/users/exchange/exchange.py:152
 msgid ""
 "Оплатите не менее {summ} {currency} по номеру счета:\n"
 "\n"
@@ -392,8 +449,8 @@ msgid "🔁 Обмен"
 msgstr "🔁 Exchange"
 
 #: keyboards/default/main_menu.py:12
-msgid "🚀 О сервисе Crypto Market"
-msgstr "🚀 About Crypto Market Service"
+msgid "🚀 О сервисе"
+msgstr "🚀 About the service"
 
 #: keyboards/default/main_menu.py:13
 msgid "🛠 Настройки"
@@ -417,7 +474,8 @@ msgstr "🗣 Referral system"
 
 #: keyboards/inline/about.py:36 keyboards/inline/exchange.py:51
 #: keyboards/inline/exchange.py:81 keyboards/inline/exchange.py:107
-#: keyboards/inline/exchange.py:132 keyboards/inline/settings.py:55
+#: keyboards/inline/profile.py:36 keyboards/inline/profile.py:90
+#: keyboards/inline/profile.py:106 keyboards/inline/settings.py:55
 #: keyboards/inline/settings.py:69 keyboards/inline/settings.py:97
 msgid "⬅️ Назад"
 msgstr "⬅️ Back"
@@ -427,20 +485,28 @@ msgid "Добавить {currency} кошелек"
 msgstr "Add {currency} wallet"
 
 #: keyboards/inline/exchange.py:68
-msgid "Купить"
-msgstr "Buy"
+msgid "📈 Купить"
+msgstr "📈 Buy"
 
 #: keyboards/inline/exchange.py:73
-msgid "Продать"
-msgstr "Sell"
+msgid "📉 Продать"
+msgstr "📉 Sell"
 
 #: keyboards/inline/exchange.py:98
 msgid "Продолжить"
 msgstr "Continue"
 
 #: keyboards/inline/exchange.py:124
-msgid "Оплатил"
-msgstr "Paid"
+msgid "Перейти к оплате по ссылке"
+msgstr "Proceed to payment via the link"
+
+#: keyboards/inline/exchange.py:132
+msgid "✅ Проверить пополнение ✅"
+msgstr "✅ Check replenishment ✅"
+
+#: keyboards/inline/exchange.py:140
+msgid "❌ Отменить пополнение ❌"
+msgstr "❌ Cancel top up ❌"
 
 #: keyboards/inline/profile.py:10
 msgid "Добавить QIWI"
@@ -457,6 +523,26 @@ msgstr "Add ETH"
 #: keyboards/inline/profile.py:28
 msgid "Добавить SOL"
 msgstr "Add SOL"
+
+#: keyboards/inline/profile.py:50
+msgid "💵 Добавить Кошелек"
+msgstr "💵 Add wallet"
+
+#: keyboards/inline/profile.py:55
+msgid "📑 Отчеты"
+msgstr "📑 Reports"
+
+#: keyboards/inline/profile.py:63
+msgid "💰 Реферальные накопления"
+msgstr "💰 Referral savings"
+
+#: keyboards/inline/profile.py:68
+msgid "🎟 Промокоды"
+msgstr "🎟 Promo Codes"
+
+#: keyboards/inline/profile.py:82
+msgid "Активировать"
+msgstr "Activate"
 
 #: keyboards/inline/settings.py:10
 msgid "🌎 Язык"

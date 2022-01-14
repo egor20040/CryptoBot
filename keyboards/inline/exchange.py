@@ -65,12 +65,12 @@ def keyboard_shopping(currency):
                                             inline_keyboard=[
                                                 [
                                                     InlineKeyboardButton(
-                                                        text=_("Купить"),
+                                                        text=_("📈 Купить"),
                                                         callback_data=set_callback.new(text_name="buy", purse=currency)
 
                                                     ),
                                                     InlineKeyboardButton(
-                                                        text=_("Продать"),
+                                                        text=_("📉 Продать"),
                                                         callback_data=set_callback.new(text_name="sell", purse=currency)
 
                                                     ),
@@ -116,12 +116,20 @@ def keyboard_aplly_bying(summ, operation):
     return keybord_bying
 
 
-def paid_keyboard():
+def paid_keyboard(url):
     paid_keyboard = InlineKeyboardMarkup(row_width=2,
                                          inline_keyboard=[
                                              [
                                                  InlineKeyboardButton(
-                                                     text=_("Оплатил"),
+                                                     text=_("Перейти к оплате по ссылке"),
+                                                     url=url
+
+                                                 ),
+
+                                             ],
+                                             [
+                                                 InlineKeyboardButton(
+                                                     text=_("✅ Проверить пополнение ✅"),
                                                      callback_data=set_paid.new(text_name="paid")
 
                                                  ),
@@ -129,7 +137,7 @@ def paid_keyboard():
                                              ],
                                              [
                                                  InlineKeyboardButton(
-                                                     text=_("⬅️ Назад"),
+                                                     text=_("❌ Отменить пополнение ❌"),
                                                      callback_data="backmenuexchange"
 
                                                  ),

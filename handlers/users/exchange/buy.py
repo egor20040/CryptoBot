@@ -93,11 +93,9 @@ async def show_paid(call: CallbackQuery, state: FSMContext):
     try:
         payment.check_payment()
     except NoPaymentFound:
-        await call.message.answer(_("Транзакция не найдена"), reply_markup=paid_keyboard())
-
+        await dp.bot.answer_callback_query(callback_query_id=call.id, text=_("Оплата не найдена"), show_alert=False)
     except NotEnoughMoney:
-        await call.message.answer(_("Не хватает денег"), reply_markup=paid_keyboard())
-
+        await dp.bot.answer_callback_query(callback_query_id=call.id, text=_("Не хватает денег"), show_alert=False)
     else:
         text = _(
             "Оплата прошла успешно.\n"

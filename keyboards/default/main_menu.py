@@ -9,7 +9,7 @@ main_menu = ReplyKeyboardMarkup(
 
         ],
         [
-            KeyboardButton(text=_("🚀 О сервисе Crypto Market")),
+            KeyboardButton(text=_("🚀 О сервисе")),
             KeyboardButton(text=_("🛠 Настройки")
                            ),
         ],

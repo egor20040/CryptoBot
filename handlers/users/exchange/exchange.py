@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.types import CallbackQuery
-from aiogram.utils.markdown import hlink, hcode
+from aiogram.utils.markdown import hlink, hcode, hbold
 
 from data import config
 from keyboards.inline.callback_datas import set_callback, set_byi_sell
@@ -16,13 +16,14 @@ from utils.misc.qiwi import Payment
 crypto = StockExchange()
 
 
-@dp.message_handler(text="🔁 Exchange")
-async def snow_menu_en(message: types.Message):
-    await show_menu_exchange(message)
+@dp.message_handler(text="🔁 Exchange", state='*')
+async def snow_menu_en(message: types.Message, state: FSMContext):
+    await show_menu_exchange(message, state)
 
 
-@dp.message_handler(text="🔁 Обмен")
-async def show_menu_exchange(message: types.Message):
+@dp.message_handler(text="🔁 Обмен", state='*')
+async def show_menu_exchange(message: types.Message, state: FSMContext):
+    await state.finish()
     await message.answer(_("🔁 Обмен \n\n Выберете валюту которую хотите купить/продать"),
                          reply_markup=keybord_exchange)
 
@@ -87,6 +88,7 @@ async def back_menu_paid(call: CallbackQuery, state: FSMContext):
 async def buy_currency_show(call: CallbackQuery, currency, minsumm, wallet, is_sell, maxsum):
     if is_sell:
         text = _(
+            "📉 Продать {currency}\n\n"
             "Ввдите сумму в {currency} которую хотите продать\n"
             "\n"
             "Минимальная сумма продажи: {minsumm}"
@@ -103,11 +105,12 @@ async def buy_currency_show(call: CallbackQuery, currency, minsumm, wallet, is_s
         await call.message.answer(text)
     else:
         text = _(
+            "📈 Купить\n\n"
             "Ввдите сумму в {currency} которую хотите приобрести\n"
             "\n"
-            "Минимальная сумма продажи: {minsumm}"
+            "Минимальная сумма покупки: {minsumm}"
             "\n"
-            "Максимальная сумма продажи: {maxsum}\n"
+            "Максимальная сумма покупки: {maxsum}\n"
             "\n"
             "Ваш {currency} кошлек для зачисления : {wallet}"
         ).format(
@@ -129,17 +132,19 @@ async def show_payment(call: CallbackQuery, callback_data: dict, state: FSMConte
         payment = Payment(amount=summ)
         payment.create()
         text = _(
-            "Оплатите не менее {summ} руб по номеру телефона или по адресу\n"
-            "\n"
-            "Ссылка: {link}\n"
-            "\n"
-            "‼️ И обязательно укажите ID платежа: {id}\n"
+            "➖➖➖➖ # {id}➖➖➖➖\n"
+            "☎️ Кошелек для оплаты: {number}\n"
+            "💰 Сумма: {summ} ₽\n"
+            "💭 Комментарий: {id}\n"
+            "{important} Комментарий и сумма должны быть 1в1\n"
+            "➖➖➖➖➖➖➖➖➖➖➖➖\n"
         ).format(
             summ=summ,
-            link=hlink(config.WALLET_QIWI, url=payment.invoice),
-            id=hcode(payment.id)
+            number=hcode(config.WALLET_QIWI),
+            id=hcode(payment.id),
+            important=hbold(_('ВАЖНО'))
         )
-        await call.message.answer(text, reply_markup=paid_keyboard())
+        await call.message.answer(text, reply_markup=paid_keyboard(payment.invoice))
         await state.set_state("paid")
         await state.update_data(payment=payment)
     else:

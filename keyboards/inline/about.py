@@ -6,7 +6,7 @@ keybord_about = InlineKeyboardMarkup(row_width=1,
                                          [
                                              InlineKeyboardButton(
                                                  text=_("💎 Наш канал"),
-                                                 url="https://t.me/sliv_litvinwb"
+                                                 url="https://t.me/crypto_market_invest"
 
                                              ),
                                          ],

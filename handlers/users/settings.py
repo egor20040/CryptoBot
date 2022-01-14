@@ -1,4 +1,5 @@
 from aiogram import types
+from aiogram.dispatcher import FSMContext
 from aiogram.types import CallbackQuery
 
 from keyboards.default import main_menu
@@ -11,13 +12,14 @@ from utils.db_api import quick_commands as commands
 from utils.misc.binance import StockExchange
 
 
-@dp.message_handler(text="🛠 Settings")
-async def show_menu_en(message: types.Message):
-    await show_menu(message)
+@dp.message_handler(text="🛠 Settings", state='*')
+async def show_menu_en(message: types.Message, state: FSMContext):
+    await show_menu(message, state)
 
 
-@dp.message_handler(text="🛠 Настройки")
-async def show_menu(message: types.Message):
+@dp.message_handler(text="🛠 Настройки", state='*')
+async def show_menu(message: types.Message, state: FSMContext):
+    await state.finish()
     text = _(
         '🛠 Настройки\n\n'
         'Ваш id: {user_id}\n\n'
@@ -112,4 +114,3 @@ async def set_language(call: CallbackQuery, callback_data: dict):
     currency = callback_data.get("language")
     await commands.update_language(id=call.message.chat.id, volute=currency)
     await language(call)
-    await call.message.answer('', reply_markup=main_menu)

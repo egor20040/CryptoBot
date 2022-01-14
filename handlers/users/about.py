@@ -1,4 +1,5 @@
 from aiogram import types
+from aiogram.dispatcher import FSMContext
 from aiogram.types import CallbackQuery
 from aiogram.utils.markdown import hlink
 
@@ -6,13 +7,14 @@ from keyboards.inline.about import keybord_about, keybord_back_about
 from loader import dp, _
 
 
-@dp.message_handler(text="🚀 About Crypto Market Service")
-async def snow_menu_en(message: types.Message):
-    await show_menu(message)
+@dp.message_handler(text="🚀 About the service", state='*')
+async def snow_menu_en(message: types.Message, state: FSMContext):
+    await show_menu(message, state)
 
 
-@dp.message_handler(text="🚀 О сервисе Crypto Market")
-async def show_menu(message: types.Message):
+@dp.message_handler(text="🚀 О сервисе", state='*')
+async def show_menu(message: types.Message, state: FSMContext):
+    await state.finish()
     text = _(
         '🚀 О сервисе Crypto Market\n\n'
         'Crypto Market, это место где ты можешь купить или продать криптоволюту с минимальной комиссией.\n\n'
@@ -21,7 +23,7 @@ async def show_menu(message: types.Message):
         'Так же всем кто интересуется миром криптоволюты , советуем наш телеграмм {сhannel}. Там мы публикуем новости и выгодные инвестиции.'
 
     ).format(
-        сhannel=hlink(_("канал"), url="https://t.me/sliv_litvinwb")
+        сhannel=hlink(_("канал"), url="https://t.me/crypto_market_invest")
     )
     await message.answer(text, reply_markup=keybord_about, disable_web_page_preview=True)
 
@@ -38,7 +40,7 @@ async def show_set_menu(call: CallbackQuery):
         'Так же всем кто интересуется миром криптоволюты , советуем наш телеграмм {сhannel}. Там мы публикуем новости и выгодные инвестиции.'
 
     ).format(
-        сhannel=hlink(_("канал"), url="https://t.me/sliv_litvinwb")
+        сhannel=hlink(_("канал"), url="https://t.me/crypto_market_invest")
     )
     await call.message.answer(text, reply_markup=keybord_about, disable_web_page_preview=True)
 
