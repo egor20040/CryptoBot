@@ -8,16 +8,16 @@
 
 ## Настройки:
 
-Для запуска бота нужно создать файл .env и указать:
-BOT_TOKEN - токен telegram-bot \n
-API_KEY - токен API Binance
-API_SECRET - секретный ключь API Binance
-PGUSER - юзернейм/логин от базы данных PostgreSQL
-PGPASSWORD - пароль от базы данных PostgreSQL
-DATABASE - название базы данных
-QIWI_TOKEN - токен QIWI
-WALLET_QIWI - номер кошелька QIWI
-QIWI_PUBKEY - публичный ключь киви
+Для запуска бота нужно создать файл .env и указать: <br>
+BOT_TOKEN - токен telegram-bot <br>
+API_KEY - токен API Binance <br>
+API_SECRET - секретный ключь API Binance <br>
+PGUSER - юзернейм/логин от базы данных PostgreSQL <br>
+PGPASSWORD - пароль от базы данных PostgreSQL <br>
+DATABASE - название базы данных <br>
+QIWI_TOKEN - токен QIWI <br>
+WALLET_QIWI - номер кошелька QIWI <br>
+QIWI_PUBKEY - публичный ключь киви <br>
 
 ```python
 BOT_TOKEN = str(os.getenv("BOT_TOKEN"))
