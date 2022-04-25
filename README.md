@@ -9,7 +9,7 @@
 ## Настройки:
 
 Для запуска бота нужно создать файл .env и указать:
-BOT_TOKEN - токен telegram-bot
+BOT_TOKEN - токен telegram-bot \n
 API_KEY - токен API Binance
 API_SECRET - секретный ключь API Binance
 PGUSER - юзернейм/логин от базы данных PostgreSQL
